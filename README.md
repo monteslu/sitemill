@@ -6,13 +6,18 @@
 
 A tiny static site generator using EJS templates. No configuration files, no complex build pipelines, no magic. Just pages, partials, and static assets.
 
-## Install
+## Build a Website (quick)
 
 ```bash
-npm install sitemill
+npm create sitemill my-site
+cd my-site
+npm install
+npm start
 ```
 
-## Quick Start
+You now have a working site at http://localhost:8080 with pages, a blog, and styles ready to customize.
+
+## Build a Website (custom)
 
 Create a project structure:
 
@@ -58,6 +63,12 @@ Create a partial:
 <body>
 ```
 
+Install sitemill:
+
+```bash
+npm install sitemill
+```
+
 Build your site:
 
 ```bash
@@ -68,7 +79,7 @@ Your site is now in the `dist/` folder.
 
 ## Project Structure
 
-tinyssg expects this layout:
+sitemill expects this layout:
 
 ```
 your-site/
