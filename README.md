@@ -4,7 +4,7 @@
 [![npm version](https://img.shields.io/npm/v/sitemill.svg)](https://www.npmjs.com/package/sitemill)
 [![npm downloads](https://img.shields.io/npm/dm/sitemill.svg)](https://www.npmjs.com/package/sitemill)
 
-A tiny static site generator using EJS templates. No configuration files, no complex build pipelines, no magic. Just pages, partials, and static assets.
+A tiny static site generator using EJS templates. No complex build pipelines, no magic. Just pages, partials, and static assets.
 
 ## Build a Website (quick)
 

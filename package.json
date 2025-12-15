@@ -1,6 +1,6 @@
 {
   "name": "sitemill",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A tiny static site generator using EJS templates",
   "main": "index.js",
   "scripts": {
