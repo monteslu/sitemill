@@ -123,18 +123,46 @@ async function build(config = {}, options = {}) {
   return { pageCount, elapsed, blogs };
 }
 
+function tryListen(server, port, maxAttempts = 10) {
+  return new Promise((resolve, reject) => {
+    let attempts = 0;
+    let currentPort = port;
+
+    const onError = (err) => {
+      if (err.code === 'EADDRINUSE' && attempts < maxAttempts) {
+        attempts++;
+        console.log(`sitemill: port ${currentPort} in use, trying ${currentPort + 1}...`);
+        currentPort++;
+        server.listen(currentPort);
+      } else {
+        reject(err);
+      }
+    };
+
+    const onListening = () => {
+      server.server.removeListener('error', onError);
+      resolve(currentPort);
+    };
+
+    server.server.once('error', onError);
+    server.server.once('listening', onListening);
+    server.listen(currentPort);
+  });
+}
+
 async function serve(config = {}, options = {}) {
   const opts = { ...defaultOptions, ...options };
   const cwd = opts.cwd || process.cwd();
   const outDir = path.resolve(cwd, opts.outDir);
-  const port = process.env.PORT || opts.port || 8080;
+  const startPort = parseInt(process.env.PORT, 10) || opts.port || 8080;
 
   await build(config, options);
 
   const httpServer = require('http-server');
   const server = httpServer.createServer({ root: outDir });
-  server.listen(port);
-  console.log(`sitemill: serving at http://localhost:${port}`);
+
+  const actualPort = await tryListen(server, startPort);
+  console.log(`sitemill: serving at http://localhost:${actualPort}`);
 
   return server;
 }
