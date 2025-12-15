@@ -1,15 +1,15 @@
-# tinyssg
+# sitemill
 
-[![CI](https://github.com/monteslu/tinyssg/actions/workflows/ci.yml/badge.svg)](https://github.com/monteslu/tinyssg/actions/workflows/ci.yml)
-[![npm version](https://img.shields.io/npm/v/tinyssg.svg)](https://www.npmjs.com/package/tinyssg)
-[![npm downloads](https://img.shields.io/npm/dm/tinyssg.svg)](https://www.npmjs.com/package/tinyssg)
+[![CI](https://github.com/monteslu/sitemill/actions/workflows/ci.yml/badge.svg)](https://github.com/monteslu/sitemill/actions/workflows/ci.yml)
+[![npm version](https://img.shields.io/npm/v/sitemill.svg)](https://www.npmjs.com/package/sitemill)
+[![npm downloads](https://img.shields.io/npm/dm/sitemill.svg)](https://www.npmjs.com/package/sitemill)
 
 A tiny static site generator using EJS templates. No configuration files, no complex build pipelines, no magic. Just pages, partials, and static assets.
 
 ## Install
 
 ```bash
-npm install tinyssg
+npm install sitemill
 ```
 
 ## Quick Start
@@ -61,7 +61,7 @@ Create a partial:
 Build your site:
 
 ```bash
-npx tinyssg build
+npx sitemill build
 ```
 
 Your site is now in the `dist/` folder.
@@ -95,19 +95,19 @@ All paths are configurable if you need something different.
 Build your site:
 
 ```bash
-npx tinyssg build
+npx sitemill build
 ```
 
 Build and start a development server:
 
 ```bash
-npx tinyssg serve
+npx sitemill serve
 ```
 
 The server runs on port 8080 by default. Set the `PORT` environment variable to change it:
 
 ```bash
-PORT=3000 npx tinyssg serve
+PORT=3000 npx sitemill serve
 ```
 
 ## Adding to package.json
@@ -117,12 +117,12 @@ For convenience, add these scripts to your project:
 ```json
 {
   "scripts": {
-    "build": "tinyssg build",
-    "start": "tinyssg serve",
-    "dev": "tinyssg serve & node --watch-path=pages --watch-path=partials --watch-path=static --watch-path=config.js -e 'require(\"tinyssg\").build(require(\"./config\"))'"
+    "build": "sitemill build",
+    "start": "sitemill serve",
+    "dev": "sitemill serve & node --watch-path=pages --watch-path=partials --watch-path=static --watch-path=config.js -e 'require(\"sitemill\").build(require(\"./config\"))'"
   },
   "dependencies": {
-    "tinyssg": "^0.1.0"
+    "sitemill": "^0.1.0"
   }
 }
 ```
@@ -244,16 +244,16 @@ The page will be generated, but it won't appear in blog listings.
 
 ## Programmatic Usage
 
-You can also use tinyssg as a library:
+You can also use sitemill as a library:
 
 ```js
-const tinyssg = require('tinyssg');
+const sitemill = require('sitemill');
 
 // Build with default options
-tinyssg.build({ title: 'My Site' });
+sitemill.build({ title: 'My Site' });
 
 // Build with custom paths
-tinyssg.build({ title: 'My Site' }, {
+sitemill.build({ title: 'My Site' }, {
   pagesDir: 'src/pages',
   partialsDir: 'src/partials',
   staticDir: 'public',
@@ -261,7 +261,7 @@ tinyssg.build({ title: 'My Site' }, {
 });
 
 // Build and serve
-tinyssg.serve({ title: 'My Site' }, { port: 3000 });
+sitemill.serve({ title: 'My Site' }, { port: 3000 });
 ```
 
 ### Options
@@ -279,7 +279,7 @@ tinyssg.serve({ title: 'My Site' }, { port: 3000 });
 
 The `dist/` folder contains plain HTML, CSS, and JavaScript. Deploy it anywhere:
 
-- Netlify: Set build command to `npx tinyssg build` and publish directory to `dist`
+- Netlify: Set build command to `npx sitemill build` and publish directory to `dist`
 - Vercel: Same as Netlify
 - GitHub Pages: Push the `dist/` folder or use GitHub Actions
 - Any static host: Just upload the `dist/` folder

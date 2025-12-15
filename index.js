@@ -118,7 +118,7 @@ async function build(config = {}, options = {}) {
 
   const pageCount = Object.keys(fileMap).length;
   const elapsed = Date.now() - startTime;
-  console.log('tinyssg:', pageCount, 'pages built in', elapsed + 'ms');
+  console.log('sitemill:', pageCount, 'pages built in', elapsed + 'ms');
 
   return { pageCount, elapsed, blogs };
 }
@@ -134,7 +134,7 @@ async function serve(config = {}, options = {}) {
   const httpServer = require('http-server');
   const server = httpServer.createServer({ root: outDir });
   server.listen(port);
-  console.log(`tinyssg: serving at http://localhost:${port}`);
+  console.log(`sitemill: serving at http://localhost:${port}`);
 
   return server;
 }

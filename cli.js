@@ -19,7 +19,7 @@ if (command === 'build') {
 } else if (command === 'serve') {
   tinyssg.serve(config);
 } else {
-  console.log('Usage: tinyssg [build|serve]');
+  console.log('Usage: sitemill [build|serve]');
   console.log('  build  - Build the site (default)');
   console.log('  serve  - Build and start dev server');
 }
