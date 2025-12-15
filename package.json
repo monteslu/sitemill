@@ -1,0 +1,38 @@
+{
+  "name": "tinyssg",
+  "version": "0.1.0",
+  "description": "A tiny static site generator using EJS templates",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "static-site-generator",
+    "ssg",
+    "ejs",
+    "static",
+    "site",
+    "generator",
+    "simple",
+    "tiny"
+  ],
+  "author": "monteslu",
+  "license": "MIT",
+  "bin": {
+    "tinyssg": "./cli.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "fs-extra": "^10.0.1",
+    "http-server": "^14.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.17.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monteslu/tinyssg.git"
+  },
+  "homepage": "https://github.com/monteslu/tinyssg#readme"
+}

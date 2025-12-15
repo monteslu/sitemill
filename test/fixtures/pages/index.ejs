@@ -1,0 +1,14 @@
+<%#
+{
+  "title": "Home",
+  "description": "Welcome to the test site"
+}
+%>
+<!doctype html>
+<html>
+<head><title><%= pageConfig.title %></title></head>
+<body>
+<%- include(partials + 'header.ejs', { config }) %>
+<h1>Welcome to <%= config.title %></h1>
+</body>
+</html>
