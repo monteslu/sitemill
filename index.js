@@ -133,6 +133,7 @@ function tryListen(server, port, maxAttempts = 10) {
         attempts++;
         console.log(`sitemill: port ${currentPort} in use, trying ${currentPort + 1}...`);
         currentPort++;
+        server.server.once('error', onError);
         server.listen(currentPort);
       } else {
         reject(err);
